@@ -1,21 +1,24 @@
-a, b = map(float, input("Введите два числа через пробел: ").split())
-
-operation = input("Выберите операцию (+, -, *, /): ")
-
-if operation == "+":
-    result = a + b
-elif operation == "-":
-    result = a - b
-elif operation == "*":
-    result = a * b
-elif operation == "/":
-    if b == 0:
-        print("Ошибка: деление на ноль")
-    else:
-        result = a / b
-        print("Результат:", result)
+try:
+    a, b = map(float, input("Введите два числа через пробел: ").split())
+except ValueError:
+    print("Ошибка: нужно ввести два числа через пробел")
 else:
-    print("Неизвестная операция")
+    operation = input("Выберите операцию (+, -, *, /): ")
 
-if operation in ["+", "-", "*"] or (operation == "/" and b != 0):
-    print("Результат:", result)
+    if operation == "+":
+        result = a + b
+        print("Результат:", result)
+    elif operation == "-":
+        result = a - b
+        print("Результат:", result)
+    elif operation == "*":
+        result = a * b
+        print("Результат:", result)
+    elif operation == "/":
+        if b == 0:
+            print("Ошибка: деление на ноль")
+        else:
+            result = a / b
+            print("Результат:", result)
+    else:
+        print("Ошибка: неизвестная операция")
